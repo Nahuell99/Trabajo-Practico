@@ -1,0 +1,6 @@
+Bosque Negro;Mordor;porcentual;20
+Bosque Negro;Mordor;Lothlórien;porcentual;10
+LothlórieN;Erebor;La Comarca;absoluto;46
+Lothlórien;La Comarca;absoluto;36
+Minas Tirith;Abismo de Helm;aXb;Erebor;
+Minas Tirith;Lothlórien;aXb;Bosque Negro;Erebor;
