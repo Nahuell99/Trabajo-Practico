@@ -11,16 +11,39 @@ import promociones.AxB;
 import promociones.Porcentual;
 import promociones.Promocion;
 
-public class Main {
-	public static void main(String args[]) {
-		ArrayList<Atraccion> a = cargaAtracciones();
-		ArrayList<Usuario> u = cargarUsuarios();
-		ArrayList<Promocion> p = cargarPromociones(a);
+public class Sistema {
+	private ArrayList<Atraccion> atracciones = new ArrayList<Atraccion>();
+	private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+	private ArrayList<Promocion> promociones = new ArrayList<Promocion>();
+	
+	public Sistema() {
+		this.atracciones = cargaAtracciones();
+		this.usuarios = cargarUsuarios();
+		this.promociones = cargarPromociones(atracciones);
+	}
+	
+	public ArrayList<Atraccion> getAtracciones() {
+		return atracciones;
+	}
 
-		System.out.println(a);
-		System.out.println(u);
-		System.out.println(p);
+	public void setAtracciones(ArrayList<Atraccion> atracciones) {
+		this.atracciones = atracciones;
+	}
+	
+	public ArrayList<Usuario> getUsuarios() {
+		return usuarios;
+	}
 
+	public void setUsuarios(ArrayList<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+
+	public ArrayList<Promocion> getPromociones() {
+		return promociones;
+	}
+
+	public void setPromociones(ArrayList<Promocion> promociones) {
+		this.promociones = promociones;
 	}
 
 	public static ArrayList<Atraccion> cargaAtracciones() {

@@ -23,7 +23,7 @@ public class AxB extends Promocion{
 
 	@Override
 	public String toString() {
-		return "AxB [atraccionesGratisList=" + atraccionesGratisList + "]";
+		return "AxB [atraccionesGratisList=" + atraccionesGratisList + ", Atracciones" + super.getAtraccionList() + "]\n\n";
 	}
 
 	@Override

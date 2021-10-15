@@ -23,7 +23,7 @@ public class Absoluta extends Promocion {
 
 	@Override
 	public String toString() {
-		return "Absoluta [precioAbsoluto=" + precioAbsoluto + "]";
+		return "Absoluta [precioAbsoluto=" + precioAbsoluto + ", Atracciones" + super.getAtraccionList() + "]\n\n";
 	}
 
 	@Override

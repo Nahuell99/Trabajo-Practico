@@ -22,6 +22,15 @@ public class Atraccion {
 		this.tiempo = tiempo;
 		this.cupo = cupo;
 	}
+	
+	public Atraccion(int idAtraccion) {
+		super();
+		this.idAtraccion = idAtraccion;
+		this.nombre = null;
+		this.costo = 0;
+		this.tiempo = 0;
+		this.cupo = 0;
+	}
 
 	public String getNombre() {
 		return nombre;
@@ -57,17 +66,26 @@ public class Atraccion {
 
 	@Override
 	public String toString() {
-		return "Atraccion [idAtraccion=" + idAtraccion + ", nombre=" + nombre + ", costo=" + costo + ", tiempo=" + tiempo + ", cupo=" + cupo + "]\n";
+		return "\nAtraccion [id=" + idAtraccion + ", nombre=" + nombre + ", costo=" + costo + ", tiempo=" + tiempo + ", cupo=" + cupo + "]\n";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(costo, cupo, nombre, tiempo);
+		return Objects.hash(idAtraccion);
 	}
 
-	public boolean equals(String nombreBuscado) {
-		return Objects.equals(nombre, nombreBuscado);
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Atraccion other = (Atraccion) obj;
+		return idAtraccion == other.idAtraccion;
 	}
-	
+
+		
 	
 }

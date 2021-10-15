@@ -22,7 +22,7 @@ public abstract class Promocion {
 
 	@Override
 	public String toString() {
-		return "Promocion [atraccionList=" + atraccionList + "]";
+		return "Promocion [atraccionList=" + atraccionList + "]\n \n";
 	}
 
 	@Override

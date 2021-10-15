@@ -21,9 +21,11 @@ public class Porcentual extends Promocion{
 		this.procentaje = procentaje;
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return "Porcentual [procentaje=" + procentaje + "]";
+		return "Porcentual [procentaje=" + procentaje + ", Atracciones" + super.getAtraccionList() + "]\n\n";
 	}
 
 	@Override
