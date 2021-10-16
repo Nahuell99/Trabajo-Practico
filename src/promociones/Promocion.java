@@ -15,6 +15,10 @@ public abstract class Promocion {
 	public ArrayList<Atraccion> getAtraccionList() {
 		return atraccionList;
 	}
+	
+	public Atraccion getAtraccionList(int i) {
+		return atraccionList.get(i);
+	}
 
 	public void setAtraccionList(ArrayList<Atraccion> atraccionList) {
 		this.atraccionList = atraccionList;
@@ -41,5 +45,11 @@ public abstract class Promocion {
 		Promocion other = (Promocion) obj;
 		return Objects.equals(atraccionList, other.atraccionList);
 	}
+	
+	//RETORNA EL CUPO MAS CHICO DEL LISTADO DE ATRACCIONES QUE POSEE LA PROMOCION
+	//EN CASO DE SER aXb, EL LISTADO ANALIZADO INCLUYE LAS GRATUITAS
+	public abstract int capacidadPromocion();
+	
+	public abstract int precioFinal();
 	
 }

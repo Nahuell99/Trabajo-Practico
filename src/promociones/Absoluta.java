@@ -45,5 +45,19 @@ public class Absoluta extends Promocion {
 		Absoluta other = (Absoluta) obj;
 		return precioAbsoluto == other.precioAbsoluto;
 	}
+
+	public int precioFinal(){
+		return precioAbsoluto;
+	}
+	
+	public int capacidadPromocion() {
+		int cupoMinimo = super.getAtraccionList().get(0).getCupo();
+		for (int i = 1;i<super.getAtraccionList().size();i++) {
+			if(super.getAtraccionList().get(i).getCupo()<cupoMinimo) {
+				cupoMinimo = super.getAtraccionList().get(i).getCupo();
+			}
+		}
+		return cupoMinimo;
+	}
 	
 }

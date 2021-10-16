@@ -21,8 +21,6 @@ public class Porcentual extends Promocion{
 		this.procentaje = procentaje;
 	}
 
-	
-
 	@Override
 	public String toString() {
 		return "Porcentual [procentaje=" + procentaje + ", Atracciones" + super.getAtraccionList() + "]\n\n";
@@ -47,5 +45,24 @@ public class Porcentual extends Promocion{
 		Porcentual other = (Porcentual) obj;
 		return procentaje == other.procentaje;
 	}
+	
+	public int precioFinal(){
+		int sumaCostosAtracciones = 0;
+		for (int i = 0;i<super.getAtraccionList().size();i++) {
+			sumaCostosAtracciones += super.getAtraccionList(i).getCosto();
+		}
+		return sumaCostosAtracciones-(procentaje*sumaCostosAtracciones)/100;
+	}
+
+	public int capacidadPromocion() {
+		int cupoMinimo = super.getAtraccionList().get(0).getCupo();
+		for (int i = 1;i<super.getAtraccionList().size();i++) {
+			if(super.getAtraccionList().get(i).getCupo()<cupoMinimo) {
+				cupoMinimo = super.getAtraccionList().get(i).getCupo();
+			}
+		}
+		return cupoMinimo;
+	}
+	
 	
 }
