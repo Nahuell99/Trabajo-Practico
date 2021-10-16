@@ -20,6 +20,7 @@ public class Sistema {
 		this.atracciones = cargaAtracciones();
 		this.usuarios = cargarUsuarios();
 		this.promociones = cargarPromociones(atracciones);
+		
 	}
 	
 	public ArrayList<Atraccion> getAtracciones() {
@@ -171,15 +172,84 @@ public class Sistema {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-		return promocionesList;
-
+		
+		boolean desordenado = true;
+		Promocion intermediario;
+		while(desordenado) {
+			desordenado = false;
+			for (int i=0;i<promocionesList.size()-1;i++) {
+				if(promocionesList.get(i).precioFinal() < promocionesList.get(i+1).precioFinal()) {
+					intermediario = promocionesList.get(i);
+					promocionesList.set(i, promocionesList.get(i+1));
+					promocionesList.set(i+1, intermediario);
+					desordenado = true;
+				}else if(promocionesList.get(i).precioFinal() == promocionesList.get(i+1).precioFinal()) {
+					if(promocionesList.get(i).tiempoTotalRequerido() < promocionesList.get(i+1).tiempoTotalRequerido()) {
+						intermediario = promocionesList.get(i);
+						promocionesList.set(i, promocionesList.get(i+1));
+						promocionesList.set(i+1, intermediario);
+						desordenado = true;
+					}
+				}
+			}
+		}
+	return promocionesList;
 	}
 
+	public void ventaParaUsuarios() {
+		System.out.println("Bienvenido/a a la Guerra de las Galaxias");
+		System.out.println("-----------------------------------------------------");
+		for(int i=0;i<this.usuarios.size();i++) {
+			
+		}
+		
+	}	
 	
+	//ORDENAR POR LAS MAS CARAS Y EN SEGUNDA INSTANCIA LAS QUE REQUEIRAN MAS TIMEPO
+	public void ordenarPromociones() {
+		boolean desordenado = true;
+		Promocion intermediario;
+		while(desordenado) {
+			desordenado = false;
+			for (int i=0;i<this.promociones.size()-1;i++) {
+				if(this.promociones.get(i).precioFinal() < this.promociones.get(i+1).precioFinal()) {
+					intermediario = this.promociones.get(i);
+					this.promociones.set(i, this.promociones.get(i+1));
+					this.promociones.set(i+1, intermediario);
+					desordenado = true;
+				}else if(this.promociones.get(i).precioFinal() == this.promociones.get(i+1).precioFinal()) {
+					if(this.promociones.get(i).tiempoTotalRequerido() < this.promociones.get(i+1).tiempoTotalRequerido()) {
+						intermediario = this.promociones.get(i);
+						this.promociones.set(i, this.promociones.get(i+1));
+						this.promociones.set(i+1, intermediario);
+						desordenado = true;
+					}
+				}
+			}
+		}
+	}
 	
-	
-	
-	
-	
+	public void ordenarAtracciones() {
+		boolean desordenado = true;
+		Atraccion intermediario;
+		while(desordenado) {
+			desordenado = false;
+			for (int i=0;i<this.atracciones.size()-1;i++) {
+				if(this.atracciones.get(i).getCosto() < this.atracciones.get(i+1).getCosto()) {
+					intermediario = this.atracciones.get(i);
+					this.atracciones.set(i, this.atracciones.get(i+1));
+					this.atracciones.set(i+1, intermediario);
+					desordenado = true;
+				}else if(this.atracciones.get(i).getCosto() == this.atracciones.get(i+1).getCosto()) {
+					if(this.atracciones.get(i).getTiempo() < this.atracciones.get(i+1).getTiempo()) {
+						intermediario = this.atracciones.get(i);
+						this.atracciones.set(i, this.atracciones.get(i+1));
+						this.atracciones.set(i+1, intermediario);
+						desordenado = true;
+					}
+				}
+			}
+		}		
+	}
+
 }

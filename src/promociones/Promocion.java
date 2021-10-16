@@ -50,6 +50,8 @@ public abstract class Promocion {
 	//EN CASO DE SER aXb, EL LISTADO ANALIZADO INCLUYE LAS GRATUITAS
 	public abstract int capacidadPromocion();
 	
+	public abstract double tiempoTotalRequerido();
+	
 	public abstract int precioFinal();
 	
 }

@@ -63,6 +63,15 @@ public class Porcentual extends Promocion{
 		}
 		return cupoMinimo;
 	}
+
+	@Override
+	public double tiempoTotalRequerido() {
+		double sumaTiempoAtracciones = 0;
+		for (int i = 0;i<super.getAtraccionList().size();i++) {
+			sumaTiempoAtracciones += super.getAtraccionList(i).getTiempo();
+		}
+		return sumaTiempoAtracciones;
+	}
 	
 	
 }

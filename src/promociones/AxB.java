@@ -69,4 +69,18 @@ public class AxB extends Promocion{
 		return cupoMinimo;
 	}
 	
+	public double tiempoTotalRequerido() {
+		double sumaTiempoAtracciones = 0;
+		for (int i = 0;i<super.getAtraccionList().size();i++) {
+			sumaTiempoAtracciones += super.getAtraccionList(i).getTiempo();
+		}
+		
+		for (int i = 0;i<this.atraccionesGratisList.size();i++) {
+			sumaTiempoAtracciones += this.atraccionesGratisList.get(i).getTiempo();
+
+		}
+				
+		return sumaTiempoAtracciones;
+	}
+	
 }
