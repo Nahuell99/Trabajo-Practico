@@ -23,12 +23,8 @@ public class Main {
 
 		//System.out.println(sistema.getAtracciones());
 		//System.out.println(sistema.getUsuarios());
-	
-		for(int i = 0; i<sistema.getPromociones().size();i++) {
-			System.out.println( "/////////////" + i + "/////////////");
-			System.out.println( sistema.getPromociones().get(i).precioFinal());
-			System.out.println( sistema.getPromociones().get(i).capacidadPromocion());
-		}
+		
+		sistema.ventaParaUsuarios();
 
 	}
 

@@ -83,4 +83,15 @@ public class AxB extends Promocion{
 		return sumaTiempoAtracciones;
 	}
 	
+	public int precioOriginal() {
+		int sumaCostosAtracciones = 0;
+		for (int i = 0;i<super.getAtraccionList().size();i++) {
+			sumaCostosAtracciones += super.getAtraccionList(i).getCosto();
+		}
+		for (int i = 0;i<this.atraccionesGratisList.size();i++) {
+			sumaCostosAtracciones += this.atraccionesGratisList.get(i).getCosto();
+		}
+		return sumaCostosAtracciones;
+	}
+	
 }

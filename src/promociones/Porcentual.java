@@ -47,10 +47,7 @@ public class Porcentual extends Promocion{
 	}
 	
 	public int precioFinal(){
-		int sumaCostosAtracciones = 0;
-		for (int i = 0;i<super.getAtraccionList().size();i++) {
-			sumaCostosAtracciones += super.getAtraccionList(i).getCosto();
-		}
+		int sumaCostosAtracciones = precioOriginal();
 		return sumaCostosAtracciones-(procentaje*sumaCostosAtracciones)/100;
 	}
 
@@ -71,6 +68,15 @@ public class Porcentual extends Promocion{
 			sumaTiempoAtracciones += super.getAtraccionList(i).getTiempo();
 		}
 		return sumaTiempoAtracciones;
+	}
+
+	@Override
+	public int precioOriginal() {
+		int sumaCostosAtracciones = 0;
+		for (int i = 0;i<super.getAtraccionList().size();i++) {
+			sumaCostosAtracciones += super.getAtraccionList(i).getCosto();
+		}
+		return sumaCostosAtracciones;
 	}
 	
 	

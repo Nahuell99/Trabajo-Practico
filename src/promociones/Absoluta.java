@@ -68,4 +68,12 @@ public class Absoluta extends Promocion {
 		return sumaTiempoAtracciones;
 	}
 	
+	public int precioOriginal() {
+		int sumaCostosAtracciones = 0;
+		for (int i = 0;i<super.getAtraccionList().size();i++) {
+			sumaCostosAtracciones += super.getAtraccionList(i).getCosto();
+		}
+		return sumaCostosAtracciones;
+	}
+	
 }

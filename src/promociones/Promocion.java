@@ -16,17 +16,19 @@ public abstract class Promocion {
 		return atraccionList;
 	}
 	
-	public Atraccion getAtraccionList(int i) {
-		return atraccionList.get(i);
+	public Atraccion getAtraccionList(int index) {
+		return atraccionList.get(index);
 	}
 
 	public void setAtraccionList(ArrayList<Atraccion> atraccionList) {
 		this.atraccionList = atraccionList;
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return "Promocion [atraccionList=" + atraccionList + "]\n \n";
+		return "Promocion [atraccionList=" + atraccionList + "]";
 	}
 
 	@Override
@@ -51,6 +53,8 @@ public abstract class Promocion {
 	public abstract int capacidadPromocion();
 	
 	public abstract double tiempoTotalRequerido();
+	
+	public abstract int precioOriginal();
 	
 	public abstract int precioFinal();
 	

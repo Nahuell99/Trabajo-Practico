@@ -63,10 +63,13 @@ public class Atraccion {
 	public void setCupo(int cupo) {
 		this.cupo = cupo;
 	}
+	public void cobrarCupo(int cobro) {
+		this.cupo -= cobro;
+	}
 
 	@Override
 	public String toString() {
-		return "\nAtraccion [id=" + idAtraccion + ", nombre=" + nombre + ", costo=" + costo + ", tiempo=" + tiempo + ", cupo=" + cupo + "]\n";
+		return this.nombre;
 	}
 
 	@Override

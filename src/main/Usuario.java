@@ -31,11 +31,17 @@ public class Usuario {
 	public void setPresupuesto(int presupuesto) {
 		this.presupuesto = presupuesto;
 	}
+	public void cobrarDinero(int cobro) {
+		this.presupuesto -= cobro;
+	}
 	public double getTiempo() {
 		return tiempo;
 	}
 	public void setTiempo(double tiempo) {
 		this.tiempo = tiempo;
+	}
+	public void cobrarTiempo(double cobro) {
+		this.tiempo -= cobro;
 	}
 	public ArrayList<Atraccion> getAtraccionList() {
 		return atraccionList;
