@@ -105,9 +105,7 @@ public class Sistema {
 		try {
 			FileReader input = new FileReader(new File("usuarios.txt"));
 			BufferedReader bufInput = new BufferedReader(input);
-
 			String line;
-
 			line = bufInput.readLine();
 			String[] datos;
 
@@ -273,28 +271,32 @@ public class Sistema {
 		System.out.println("\n     Bienvenido/a a la Guerra de las Galaxias");
 		System.out.println("-----------------------------------------------------");
 		for (int i = 0; i < this.usuarios.size(); i++) {
+			// OFRESCO PROMOCIONES
 			for (int j = 0; j < this.promociones.size(); j++) {
-				
+
 				int presupuestoUser = this.usuarios.get(i).getPresupuesto();
 				double tiempoUser = this.usuarios.get(i).getTiempo();
-				
+
 				int precioFinal = this.promociones.get(j).precioFinal();
 				double duracion = this.promociones.get(j).tiempoTotalRequerido();
-				
-				if (presupuestoUser>precioFinal && tiempoUser>duracion) {
+
+				System.out.println("\nNombre de visitante: " + this.usuarios.get(i).getNombre());
+				System.out.println("Tiempo: " + tiempoUser + " horas");
+				System.out.println("Presupuesto: $" + presupuestoUser);
+
+				if ((presupuestoUser > precioFinal) && (tiempoUser > duracion)
+						&& (this.promociones.get(j).capacidadPromocion() > 0)
+						&& !this.promociones.get(j).buscarAtraccion(this.usuarios.get(i).getAtraccionList())) {
 
 					String respuesta = "";
 					boolean respuestaInvalida = true;
-
-					System.out.println("\nNombre de visitante: " + this.usuarios.get(i).getNombre());
-					System.out.println("\nPresupuesto: " + presupuestoUser);
-					System.out.println("\nTiempo: " + tiempoUser);
 
 					System.out.println("\nPromocion: ");
 					System.out.println("-Atracciones incluidas: " + this.promociones.get(j).getAtraccionList());
 					System.out.println("-Duración: " + duracion + " horas");
 					System.out.println("-Precio original: $" + this.promociones.get(j).precioOriginal());
 					System.out.println("-Precio con descuento: $" + precioFinal);
+					System.out.println("-Precio cupo: " + this.promociones.get(j).capacidadPromocion());
 
 					System.out.println("\nAcepta sugerencia? Ingrese S o N");
 					// VALIDO QUE LA RESPUESTA SEA "S" O "N"
@@ -310,8 +312,8 @@ public class Sistema {
 					if (respuesta.equals("S")) {
 						// USUARIO
 						this.usuarios.get(i).getAtraccionList().addAll(this.promociones.get(j).getAtraccionList());
-						this.usuarios.get(i).cobrarDinero(this.promociones.get(j).precioFinal());
-						this.usuarios.get(i).cobrarTiempo(this.promociones.get(j).tiempoTotalRequerido());
+						this.usuarios.get(i).cobrarDinero(precioFinal);
+						this.usuarios.get(i).cobrarTiempo(duracion);
 						// ATRACCION
 						for (int k = 0; k < this.promociones.get(j).getAtraccionList().size(); k++) {
 							this.promociones.get(j).getAtraccionList(k).cobrarCupo(1);
@@ -319,10 +321,61 @@ public class Sistema {
 						this.ordenarPromociones();
 						this.ordenarAtracciones();
 					}
-				}else {
+				} else {
 					System.out.println("No hay tiempo o plata");
 				}
-			}
-		}
-	}
+			} // CIERRE FOR PROMOCIONES
+
+			// OFRESCO ATRACCIONES
+			for (int j = 0; j < this.atracciones.size(); j++) {
+				int presupuestoUser = this.usuarios.get(i).getPresupuesto();
+				double tiempoUser = this.usuarios.get(i).getTiempo();
+
+				int costo = this.atracciones.get(j).getCosto();
+				double duracion = this.atracciones.get(j).getTiempo();
+
+				System.out.println("\nNombre de visitante: " + this.usuarios.get(i).getNombre());
+				System.out.println("Tiempo: " + tiempoUser + " horas");
+				System.out.println("Presupuesto: $" + presupuestoUser);
+
+				if (presupuestoUser > costo && tiempoUser > duracion && this.atracciones.get(j).getCupo() > 0
+						&& !(this.usuarios.get(i).getAtraccionList().indexOf(this.atracciones.get(j)) > -1)) {
+					String respuesta = "";
+					boolean respuestaInvalida = true;
+
+					System.out.println("\nAtraccion: ");
+					System.out.println("-Atracciones incluidas: " + this.atracciones.get(j).getNombre());
+					System.out.println("-Duración: " + duracion + " horas");
+					System.out.println("-Precio: $" + costo);
+					System.out.println("-Cupo: " + this.atracciones.get(j).getCupo());
+
+					System.out.println("\nAcepta sugerencia? Ingrese S o N");
+					// VALIDO QUE LA RESPUESTA SEA "S" O "N"
+					while (respuestaInvalida) {
+						respuesta = entradaTeclado.nextLine();
+						if (respuesta.equals("S") || respuesta.equals("N")) {
+							respuestaInvalida = false;
+							break;
+						}
+						System.out.println("Caracter invalido. Ingrese S o N");
+					}
+
+					if (respuesta.equals("S")) {
+						// USUARIO
+						this.usuarios.get(i).getAtraccionList().add(this.atracciones.get(j));
+						this.usuarios.get(i).cobrarDinero(costo);
+						this.usuarios.get(i).cobrarTiempo(duracion);
+						// ATRACCION
+						this.atracciones.get(j).cobrarCupo(1);
+
+						this.ordenarPromociones();
+						this.ordenarAtracciones();
+					}
+				} else {
+					System.out.println("No hay tiempo o plata");
+				}
+			} // CIERRE FOR ATRACCIONES
+		} // CIERRE FOR USUARIOS
+	} // CIERRE FUNCION
+
 }

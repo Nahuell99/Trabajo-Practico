@@ -58,4 +58,14 @@ public abstract class Promocion {
 	
 	public abstract int precioFinal();
 	
+	public boolean buscarAtraccion(ArrayList<Atraccion> atraccionesUsuario){
+		boolean existe = false;
+		for(int i = 0;i<atraccionesUsuario.size();i++) {
+			if(this.atraccionList.indexOf(atraccionesUsuario.get(i)) > -1) {
+				existe = true ;
+			}
+		}
+		return existe;
+	}
+	
 }
