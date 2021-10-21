@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 import promociones.Absoluta;
 import promociones.AxB;
 import promociones.Porcentual;
@@ -47,6 +48,11 @@ public class Sistema {
 	public void setPromociones(ArrayList<Promocion> promociones) {
 		this.promociones = promociones;
 	}
+	
+	public static void clearScreen() {  
+	    System.out.print("\033[H\033[2J");  
+	    System.out.flush();  
+	}  
 
 	public static ArrayList<Atraccion> cargaAtracciones() {
 		ArrayList<Atraccion> atraccionesList = new ArrayList<Atraccion>();
@@ -272,6 +278,7 @@ public class Sistema {
 		System.out.println("-----------------------------------------------------");
 		for (int i = 0; i < this.usuarios.size(); i++) {
 			// OFRESCO PROMOCIONES
+			this.usuarios.get(i).mostrarUsuario();
 			for (int j = 0; j < this.promociones.size(); j++) {
 
 				int presupuestoUser = this.usuarios.get(i).getPresupuesto();
@@ -279,24 +286,15 @@ public class Sistema {
 
 				int precioFinal = this.promociones.get(j).precioFinal();
 				double duracion = this.promociones.get(j).tiempoTotalRequerido();
-
-				System.out.println("\nNombre de visitante: " + this.usuarios.get(i).getNombre());
-				System.out.println("Tiempo: " + tiempoUser + " horas");
-				System.out.println("Presupuesto: $" + presupuestoUser);
-
+				
 				if ((presupuestoUser > precioFinal) && (tiempoUser > duracion)
 						&& (this.promociones.get(j).capacidadPromocion() > 0)
 						&& !this.promociones.get(j).buscarAtraccion(this.usuarios.get(i).getAtraccionList())) {
 
 					String respuesta = "";
 					boolean respuestaInvalida = true;
-
-					System.out.println("\nPromocion: ");
-					System.out.println("-Atracciones incluidas: " + this.promociones.get(j).getAtraccionList());
-					System.out.println("-Duración: " + duracion + " horas");
-					System.out.println("-Precio original: $" + this.promociones.get(j).precioOriginal());
-					System.out.println("-Precio con descuento: $" + precioFinal);
-					System.out.println("-Precio cupo: " + this.promociones.get(j).capacidadPromocion());
+					
+					this.promociones.get(j).mostrarPromocion();
 
 					System.out.println("\nAcepta sugerencia? Ingrese S o N");
 					// VALIDO QUE LA RESPUESTA SEA "S" O "N"
@@ -320,9 +318,11 @@ public class Sistema {
 						}
 						this.ordenarPromociones();
 						this.ordenarAtracciones();
+						this.usuarios.get(i).mostrarUsuario();
 					}
 				} else {
-					System.out.println("No hay tiempo o plata");
+					
+					
 				}
 			} // CIERRE FOR PROMOCIONES
 
@@ -333,22 +333,15 @@ public class Sistema {
 
 				int costo = this.atracciones.get(j).getCosto();
 				double duracion = this.atracciones.get(j).getTiempo();
-
-				System.out.println("\nNombre de visitante: " + this.usuarios.get(i).getNombre());
-				System.out.println("Tiempo: " + tiempoUser + " horas");
-				System.out.println("Presupuesto: $" + presupuestoUser);
+				
 
 				if (presupuestoUser > costo && tiempoUser > duracion && this.atracciones.get(j).getCupo() > 0
 						&& !(this.usuarios.get(i).getAtraccionList().indexOf(this.atracciones.get(j)) > -1)) {
 					String respuesta = "";
 					boolean respuestaInvalida = true;
-
-					System.out.println("\nAtraccion: ");
-					System.out.println("-Atracciones incluidas: " + this.atracciones.get(j).getNombre());
-					System.out.println("-Duración: " + duracion + " horas");
-					System.out.println("-Precio: $" + costo);
-					System.out.println("-Cupo: " + this.atracciones.get(j).getCupo());
-
+					
+					this.atracciones.get(j).mostrarAtraccion();
+					
 					System.out.println("\nAcepta sugerencia? Ingrese S o N");
 					// VALIDO QUE LA RESPUESTA SEA "S" O "N"
 					while (respuestaInvalida) {
@@ -370,11 +363,11 @@ public class Sistema {
 
 						this.ordenarPromociones();
 						this.ordenarAtracciones();
+						this.usuarios.get(i).mostrarUsuario();
 					}
-				} else {
-					System.out.println("No hay tiempo o plata");
-				}
+				} 
 			} // CIERRE FOR ATRACCIONES
+			System.out.println(this.usuarios.get(i).getNombre() + "Se a quedado sin dinero o tiempo");
 		} // CIERRE FOR USUARIOS
 	} // CIERRE FUNCION
 

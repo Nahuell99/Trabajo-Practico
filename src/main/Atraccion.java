@@ -64,7 +64,7 @@ public class Atraccion {
 		this.cupo = cupo;
 	}
 	public void cobrarCupo(int cobro) {
-		this.cupo -= cobro;
+		this.cupo = this.cupo - cobro;
 	}
 
 	@Override
@@ -89,6 +89,14 @@ public class Atraccion {
 		return idAtraccion == other.idAtraccion;
 	}
 
+	public void mostrarAtraccion() {
 		
+		System.out.println("\nAtraccion: ");
+		System.out.println("-Atracciones nombre: " + this.nombre);
+		System.out.println("-Duración: " + this.tiempo + " horas");
+		System.out.println("-Precio: $" + costo);
+		System.out.println("-Cupo: " + this.cupo);
+		
+	}
 	
 }

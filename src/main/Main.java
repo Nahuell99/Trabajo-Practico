@@ -25,6 +25,8 @@ public class Main {
 		//System.out.println(sistema.getUsuarios());
 		
 		sistema.ventaParaUsuarios();
+		System.out.println(sistema.getUsuarios());
+		
 
 	}
 

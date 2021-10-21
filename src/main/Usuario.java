@@ -75,4 +75,12 @@ public class Usuario {
 				&& Double.doubleToLongBits(tiempo) == Double.doubleToLongBits(other.tiempo);
 	}
 	
+	public void mostrarUsuario() {
+		
+		System.out.println("\nNombre de visitante: " + this.nombre);
+		System.out.println("Tiempo: " + this.tiempo + " horas");
+		System.out.println("Presupuesto: $" + this.presupuesto );
+		
+	}
+	
 }

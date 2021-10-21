@@ -68,4 +68,13 @@ public abstract class Promocion {
 		return existe;
 	}
 	
+	public void mostrarPromocion() {
+		System.out.println("\nPromocion: ");
+		System.out.println("-Atracciones incluidas: " + this.atraccionList);
+		System.out.println("-Duración: " + this.tiempoTotalRequerido() + " horas");
+		System.out.println("-Precio original: $" + this.precioOriginal());
+		System.out.println("-Precio con descuento: $" + this.precioFinal());
+		System.out.println("-Precio cupo: " + this.capacidadPromocion());
+	}
+	
 }
