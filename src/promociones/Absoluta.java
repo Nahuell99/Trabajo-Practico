@@ -2,7 +2,6 @@ package promociones;
 
 import java.util.ArrayList;
 import java.util.Objects;
-
 import main.Atraccion;
 
 public class Absoluta extends Promocion {
@@ -15,10 +14,6 @@ public class Absoluta extends Promocion {
 
 	public int getPrecioAbsoluto() {
 		return precioAbsoluto;
-	}
-
-	public void setPrecioAbsoluto(int precioAbsoluto) {
-		this.precioAbsoluto = precioAbsoluto;
 	}
 
 	@Override

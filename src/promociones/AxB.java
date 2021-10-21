@@ -2,7 +2,6 @@ package promociones;
 
 import java.util.ArrayList;
 import java.util.Objects;
-
 import main.Atraccion;
 
 public class AxB extends Promocion{
@@ -15,10 +14,6 @@ public class AxB extends Promocion{
 
 	public ArrayList<Atraccion> getAtraccionesGratisList() {
 		return atraccionesGratisList;
-	}
-
-	public void setAtraccionesGratisList(ArrayList<Atraccion> atraccionesGratisList) {
-		this.atraccionesGratisList = atraccionesGratisList;
 	}
 
 	@Override

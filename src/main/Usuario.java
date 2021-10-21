@@ -22,14 +22,8 @@ public class Usuario {
 	public String getNombre() {
 		return nombre;
 	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
 	public int getPresupuesto() {
 		return presupuesto;
-	}
-	public void setPresupuesto(int presupuesto) {
-		this.presupuesto = presupuesto;
 	}
 	public void cobrarDinero(int cobro) {
 		this.presupuesto -= cobro;
@@ -37,17 +31,11 @@ public class Usuario {
 	public double getTiempo() {
 		return tiempo;
 	}
-	public void setTiempo(double tiempo) {
-		this.tiempo = tiempo;
-	}
 	public void cobrarTiempo(double cobro) {
 		this.tiempo -= cobro;
 	}
 	public ArrayList<Atraccion> getAtraccionList() {
 		return atraccionList;
-	}
-	public void setAtraccionList(ArrayList<Atraccion> atraccionList) {
-		this.atraccionList = atraccionList;
 	}
 
 	@Override
@@ -76,11 +64,8 @@ public class Usuario {
 	}
 	
 	public void mostrarUsuario() {
-		
 		System.out.println("\nNombre de visitante: " + this.nombre);
 		System.out.println("Tiempo: " + this.tiempo + " horas");
 		System.out.println("Presupuesto: $" + this.presupuesto );
-		
 	}
-	
 }

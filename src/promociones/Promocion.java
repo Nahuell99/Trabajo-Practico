@@ -2,7 +2,6 @@ package promociones;
 
 import java.util.ArrayList;
 import java.util.Objects;
-
 import main.Atraccion;
 
 public abstract class Promocion {
@@ -15,17 +14,10 @@ public abstract class Promocion {
 	public ArrayList<Atraccion> getAtraccionList() {
 		return atraccionList;
 	}
-	
 	public Atraccion getAtraccionList(int index) {
 		return atraccionList.get(index);
 	}
-
-	public void setAtraccionList(ArrayList<Atraccion> atraccionList) {
-		this.atraccionList = atraccionList;
-	}
-
 	
-
 	@Override
 	public String toString() {
 		return "Promocion [atraccionList=" + atraccionList + "]";

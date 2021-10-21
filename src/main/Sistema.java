@@ -6,8 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-
-
 import promociones.Absoluta;
 import promociones.AxB;
 import promociones.Porcentual;
@@ -29,30 +27,13 @@ public class Sistema {
 		return atracciones;
 	}
 
-	public void setAtracciones(ArrayList<Atraccion> atracciones) {
-		this.atracciones = atracciones;
-	}
-
 	public ArrayList<Usuario> getUsuarios() {
 		return usuarios;
-	}
-
-	public void setUsuarios(ArrayList<Usuario> usuarios) {
-		this.usuarios = usuarios;
 	}
 
 	public ArrayList<Promocion> getPromociones() {
 		return promociones;
 	}
-
-	public void setPromociones(ArrayList<Promocion> promociones) {
-		this.promociones = promociones;
-	}
-	
-	public static void clearScreen() {  
-	    System.out.print("\033[H\033[2J");  
-	    System.out.flush();  
-	}  
 
 	public static ArrayList<Atraccion> cargaAtracciones() {
 		ArrayList<Atraccion> atraccionesList = new ArrayList<Atraccion>();

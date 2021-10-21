@@ -2,7 +2,6 @@ package promociones;
 
 import java.util.ArrayList;
 import java.util.Objects;
-
 import main.Atraccion;
 
 public class Porcentual extends Promocion{
@@ -15,10 +14,6 @@ public class Porcentual extends Promocion{
 
 	public int getProcentaje() {
 		return procentaje;
-	}
-
-	public void setProcentaje(int procentaje) {
-		this.procentaje = procentaje;
 	}
 
 	@Override
