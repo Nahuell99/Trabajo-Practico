@@ -13,8 +13,8 @@ public class Atraccion {
 	private int costo;
 	private double tiempo;
 	private int cupo;
-	
-	public Atraccion(int idAtraccion,String nombre, int costo, double tiempo, int cupo) {
+
+	public Atraccion(int idAtraccion, String nombre, int costo, double tiempo, int cupo) {
 		super();
 		this.idAtraccion = idAtraccion;
 		this.nombre = nombre;
@@ -22,7 +22,7 @@ public class Atraccion {
 		this.tiempo = tiempo;
 		this.cupo = cupo;
 	}
-	
+
 	public Atraccion(int idAtraccion) {
 		super();
 		this.idAtraccion = idAtraccion;
@@ -35,15 +35,19 @@ public class Atraccion {
 	public String getNombre() {
 		return nombre;
 	}
+
 	public int getCosto() {
 		return costo;
 	}
+
 	public double getTiempo() {
 		return tiempo;
 	}
+
 	public int getCupo() {
 		return cupo;
 	}
+
 	public void cobrarCupo(int cobro) {
 		this.cupo = this.cupo - cobro;
 	}
@@ -77,5 +81,9 @@ public class Atraccion {
 		System.out.println("-Precio: $" + costo);
 		System.out.println("-Cupo: " + this.cupo);
 	}
-	
+
+	public String retornarAtraccion() {
+		return "Atraccion: " + "\n-Atracciones nombre: " + this.nombre + "\n-Duración: " + this.tiempo + " horas"
+				+ "\n-Precio: $" + costo + "\n-Cupo: " + this.cupo;
+	}
 }

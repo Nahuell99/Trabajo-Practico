@@ -3,7 +3,9 @@ package main;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 import promociones.Absoluta;
@@ -267,14 +269,14 @@ public class Sistema {
 
 				int precioFinal = this.promociones.get(j).precioFinal();
 				double duracion = this.promociones.get(j).tiempoTotalRequerido();
-				
+
 				if ((presupuestoUser > precioFinal) && (tiempoUser > duracion)
 						&& (this.promociones.get(j).capacidadPromocion() > 0)
 						&& !this.promociones.get(j).buscarAtraccion(this.usuarios.get(i).getAtraccionList())) {
 
 					String respuesta = "";
 					boolean respuestaInvalida = true;
-					
+
 					this.promociones.get(j).mostrarPromocion();
 
 					System.out.println("\nAcepta sugerencia? Ingrese S o N");
@@ -302,8 +304,7 @@ public class Sistema {
 						this.usuarios.get(i).mostrarUsuario();
 					}
 				} else {
-					
-					
+
 				}
 			} // CIERRE FOR PROMOCIONES
 
@@ -314,15 +315,14 @@ public class Sistema {
 
 				int costo = this.atracciones.get(j).getCosto();
 				double duracion = this.atracciones.get(j).getTiempo();
-				
 
 				if (presupuestoUser > costo && tiempoUser > duracion && this.atracciones.get(j).getCupo() > 0
 						&& !(this.usuarios.get(i).getAtraccionList().indexOf(this.atracciones.get(j)) > -1)) {
 					String respuesta = "";
 					boolean respuestaInvalida = true;
-					
+
 					this.atracciones.get(j).mostrarAtraccion();
-					
+
 					System.out.println("\nAcepta sugerencia? Ingrese S o N");
 					// VALIDO QUE LA RESPUESTA SEA "S" O "N"
 					while (respuestaInvalida) {
@@ -346,10 +346,41 @@ public class Sistema {
 						this.ordenarAtracciones();
 						this.usuarios.get(i).mostrarUsuario();
 					}
-				} 
+				}
 			} // CIERRE FOR ATRACCIONES
 			System.out.println(this.usuarios.get(i).getNombre() + "Se a quedado sin dinero o tiempo");
 		} // CIERRE FOR USUARIOS
 	} // CIERRE FUNCION
 
+	public void imprimirCronograma() {
+		FileWriter fichero = null;
+		PrintWriter pw = null;
+
+		for (int i = 0; i < usuarios.size(); i++) {
+			String nombre = usuarios.get(i).getNombre();
+			int dni = usuarios.get(i).getDNI();
+			
+			try {
+				fichero = new FileWriter(nombre + "-" + dni + ".txt");
+				pw = new PrintWriter(fichero);
+				
+				pw.println(usuarios.get(i).retornarUsuario());
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					// Nuevamente aprovechamos el finally para
+					// asegurarnos que se cierra el fichero.
+					if (null != fichero)
+						fichero.close();
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
+			}	
+		}		
+	}			
+
+	
+	
 }
