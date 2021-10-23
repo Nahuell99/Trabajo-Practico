@@ -1,0 +1,11 @@
+Nombre de visitante: Galadriel
+DNI: 51234568
+
+Tiempo libre original: 6.0 horas
+Tiempo libre final: 2.0 horas
+Presupuesto original: $120
+Presupuesto final: $60
+Atracciones compradas:[Lothlórien, Mordor]
+
+Total a Pagar: $60
+Tiempo a invertir:4.0 horas

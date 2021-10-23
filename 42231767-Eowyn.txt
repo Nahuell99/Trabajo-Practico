@@ -1,0 +1,11 @@
+Nombre de visitante: Eowyn
+DNI: 42231767
+
+Tiempo libre original: 8.0 horas
+Tiempo libre final: 5.5 horas
+Presupuesto original: $10
+Presupuesto final: $5
+Atracciones compradas:[Minas Tirith]
+
+Total a Pagar: $5
+Tiempo a invertir:2.5 horas

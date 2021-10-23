@@ -1,0 +1,11 @@
+Nombre de visitante: Aragon
+DNI: 57161983
+
+Tiempo libre original: 9.0 horas
+Tiempo libre final: 1.5 horas
+Presupuesto original: $81
+Presupuesto final: $45
+Atracciones compradas:[Lothlórien, La Comarca]
+
+Total a Pagar: $36
+Tiempo a invertir:7.5 horas

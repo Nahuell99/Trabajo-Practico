@@ -106,7 +106,7 @@ public class Usuario {
 				+ "\nPresupuesto original: $" + this.presupuestoOriginal
 				+ "\nPresupuesto final: $" + this.presupuesto 
 				+ "\nAtracciones compradas:" + atraccionList 
-				+ "\n\nTotal a Pagar:" + (this.presupuestoOriginal - this.presupuesto)
-				+ "\nTiempo a invertir:" + tiempoOcupado();
+				+ "\n\nTotal a Pagar: $" + (this.presupuestoOriginal - this.presupuesto)
+				+ "\nTiempo a invertir:" + tiempoOcupado() + " horas";
 	}
 }

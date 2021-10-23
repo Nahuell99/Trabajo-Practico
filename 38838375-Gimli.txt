@@ -1,0 +1,11 @@
+Nombre de visitante: Gimli
+DNI: 38838375
+
+Tiempo libre original: 10.0 horas
+Tiempo libre final: 0.5 horas
+Presupuesto original: $168
+Presupuesto final: $122
+Atracciones compradas:[Lothlórien, La Comarca, Moria]
+
+Total a Pagar: $46
+Tiempo a invertir:9.5 horas

@@ -291,6 +291,7 @@ public class Sistema {
 					}
 
 					if (respuesta.equals("S")) {
+						System.out.println("¡Aceptada!");
 						// USUARIO
 						this.usuarios.get(i).getAtraccionList().addAll(this.promociones.get(j).getAtraccionList());
 						this.usuarios.get(i).cobrarDinero(precioFinal);
@@ -348,8 +349,15 @@ public class Sistema {
 					}
 				}
 			} // CIERRE FOR ATRACCIONES
-			System.out.println(this.usuarios.get(i).getNombre() + "Se a quedado sin dinero o tiempo");
+			System.out.println(this.usuarios.get(i).getNombre() + " se a quedado sin dinero o tiempo");
+			System.out.println("-----------------------------------------------------");
 		} // CIERRE FOR USUARIOS
+		
+		System.out.println("\n-----------------------------------------------------");
+		System.out.println("Se le a generado el cronograma a todos los usuarios.");
+		System.out.println("A continacion se generaran los archivos con los cronogramas para cada usuario");
+		System.out.println("DNI + NOMBRE + .txt");
+		System.out.println("-----------------------------------------------------");
 	} // CIERRE FUNCION
 
 	public void imprimirCronograma() {
@@ -361,7 +369,7 @@ public class Sistema {
 			int dni = usuarios.get(i).getDNI();
 			
 			try {
-				fichero = new FileWriter(nombre + "-" + dni + ".txt");
+				fichero = new FileWriter(dni + "-" + nombre + ".txt");
 				pw = new PrintWriter(fichero);
 				
 				pw.println(usuarios.get(i).retornarUsuario());

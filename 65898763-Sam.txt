@@ -1,0 +1,11 @@
+Nombre de visitante: Sam
+DNI: 65898763
+
+Tiempo libre original: 8.0 horas
+Tiempo libre final: 1.0 horas
+Presupuesto original: $36
+Presupuesto final: $13
+Atracciones compradas:[Bosque Negro, Mordor]
+
+Total a Pagar: $23
+Tiempo a invertir:7.0 horas
